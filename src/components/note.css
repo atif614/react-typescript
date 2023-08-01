@@ -1,0 +1,20 @@
+.notes{
+    border: 1px solid gray;
+    padding: 3rem;
+    font-size: 1rem;
+    color: #333;
+    height: 10rem;
+    border-radius: 1rem;
+    background-color:  rgb(240, 226, 207);
+    margin-top: 2rem;
+}
+
+.high{
+background-color: coral;
+}
+.medium{
+ background-color: rgb(248, 153, 118);
+}
+.low{
+    background-color: blueviolet;
+}
