@@ -8,7 +8,7 @@ export const AllNotes:NoteType[] = [
     {
         id: '2',
         text: "Note 3",
-        priority: "mediim"
+        priority: "medium"
     },
     {
         id: '3',

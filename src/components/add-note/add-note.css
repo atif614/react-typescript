@@ -1,8 +1,17 @@
-.add-note input{
-    line-height: 2rem;
-    width: 80%;
+.add-note input {
+    height: 2rem;
+    width: 60%;
 }
-.add-note button{
-    height: 38px;
-    width: 15%;
-}  
+
+.add-note button {
+    /* margin-top: 16px; */
+    height: 35px;
+    margin-left: 10px;
+    width: 10%;
+}
+
+.add-note select {
+    height: 2.5rem;
+    margin-left: 10px;
+    width: 10%;
+}

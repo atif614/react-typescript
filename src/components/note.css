@@ -1,15 +1,11 @@
-.notes{
-    border: 1px solid gray;
-    padding: 3rem;
-    font-size: 1rem;
-    color: #333;
-    height: 5rem;
-    border-radius: 1rem;
-    background-color:  rgb(240, 226, 207);
-    margin-top: 2rem;
+.right-corner{
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ padding: 0.5rem;
 }
 
-.high{
+/* .high{
 background-color: coral;
 }
 .medium{
@@ -17,4 +13,4 @@ background-color: coral;
 }
 .low{
     background-color: blueviolet;
-}
+} */
