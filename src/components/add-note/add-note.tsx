@@ -6,67 +6,70 @@ import Card from '../card/card';
 
 type AddNoteProps = {
     addNote: (note: NoteType) => void,
-    editMode:boolean,
-    noteToBeEdited:NoteType | null,
-    updateNote: (updatedNote: NoteType) => void 
+    editMode: boolean,
+    noteToBeEdited: NoteType | null,
+    updateNote: (updatedNote: NoteType) => void
 }
-function AddNote(props:AddNoteProps){
-    const [text,setText]=useState("");
+function AddNote(props: AddNoteProps) {
+    const [text, setText] = useState("");
     // const defaultPriority: 'low' | 'medium' | 'high' =  'low';
-    const [priority,setPriority]=useState<Priority>('low');
+    const [priority, setPriority] = useState<Priority>('low');
     const theme = 'dark';
-    function handleChange(e:React.ChangeEvent<HTMLInputElement>){
-        console.log(e.target.value);
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        // console.log(e.target.value);
         setText(e.target.value);
-    } 
-    function handleClick(e:React.MouseEvent<HTMLButtonElement, MouseEvent>){
+        // console.log(text);
+    }
+    function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         e.preventDefault();
-        if(props.editMode){
-          props.noteToBeEdited &&  props.updateNote({
+        // console.log(text);
+        if (props.editMode) {
+            props.noteToBeEdited && props.updateNote({
                 text,
                 priority,
-                id:props.noteToBeEdited.id,
+                id: props.noteToBeEdited.id,
             })
-        }else{
+        } else {
             props.addNote({
                 text,
                 priority,
-                id:uuidv4(),
+                id: uuidv4(),
             })
         }
-       
+
         setText('');
         setPriority('low');
     }
-    function handleSelect(e:React.ChangeEvent<HTMLSelectElement>){
-       console.log(e.target.value);
-    //    Type Assertion
-       setPriority(e.target.value as Priority);
-       
+    function handleSelect(e: React.ChangeEvent<HTMLSelectElement>) {
+        console.log(e.target.value);
+        //    Type Assertion
+        setPriority(e.target.value as Priority);
+
     }
 
-    const setNoteContent = (note:NoteType)=>{
+    const setNoteContent = (note: NoteType) => {
+        console.log(note)
         setText(note.text);
         setPriority(note.priority);
     }
-    useEffect(()=>{
+    useEffect(() => {
         console.log('useEffect')
-        if(props.noteToBeEdited && props.editMode){
+        if (props.noteToBeEdited && props.editMode) {
             setNoteContent(props.noteToBeEdited);
         }
-    },[props.noteToBeEdited,props.editMode])
-    
-    return(
-        <Card bgColor={theme==='dark' ? '#333' : '#ddd'} height='2' padding='1'>
-         <form className="add-note">
-            <input type="text" value={text} onChange={handleChange} />
-            <select onChange={handleSelect} value={priority}>
-                <option value="high" >High</option>
-                <option value="medium">Medium</option>
-                <option value="low">Low</option>
-            </select>
-            <button onClick={handleClick}>{props.editMode ? 'Update' : 'Add'}</button>
-         </form>
+    }, [props.noteToBeEdited, props.editMode])
+
+    return (
+        <Card bgColor={theme === 'dark' ? '#333' : '#ddd'} height='2' padding='1'>
+            <form className="add-note">
+                <input type="text" value={text} onChange={handleChange} />
+                <select onChange={handleSelect} value={priority}>
+                    <option value="high" >High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <button onClick={handleClick}>{props.editMode ? 'Update' : 'Add'}</button>
+            </form>
         </Card>
     )
 }

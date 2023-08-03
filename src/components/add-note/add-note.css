@@ -1,17 +1,24 @@
 .add-note input {
-    height: 2rem;
+    height: 30px;
     width: 60%;
+    bottom: 0;
+    padding: 0;
 }
 
 .add-note button {
-    /* margin-top: 16px; */
-    height: 35px;
-    margin-left: 10px;
-    width: 10%;
+    /* line-height: 2rem; */
+    height: 34px;
+    width: 15%;
+    bottom: 0;
+    padding: 0;
+    background-color: green;
+    color: white;
 }
 
 .add-note select {
-    height: 2.5rem;
-    margin-left: 10px;
-    width: 10%;
+    /* line-height: 2rems; */
+    height: 34px;
+     width: 20%;
+    bottom: 0;
+    padding: 0;
 }
